@@ -1,0 +1,85 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+"A node, according to the Relay specification."
+interface Node {
+    "The id of this node."
+    id: ID!
+}
+
+type Device implements Node {
+    _id: Int!
+    color: String!
+    deviceHealth: String!
+    id: ID!
+    lastUsed: String!
+    location: String!
+    price: Float!
+    type: String!
+}
+
+type Mutation {
+    "Creates a Device."
+    createDevice(input: createDeviceInput!): createDevicePayload
+    "Deletes a Device."
+    deleteDevice(input: deleteDeviceInput!): deleteDevicePayload
+    "Updates a Device."
+    updateDevice(input: updateDeviceInput!): updateDevicePayload
+}
+
+type Query {
+    device(id: ID!): Device
+    devices: [Device]
+    node(id: ID!): Node
+}
+
+"Creates a Device."
+type createDevicePayload {
+    clientMutationId: String
+    device: Device
+}
+
+"Deletes a Device."
+type deleteDevicePayload {
+    clientMutationId: String
+    device: Device
+}
+
+"Updates a Device."
+type updateDevicePayload {
+    clientMutationId: String
+    device: Device
+}
+
+"Creates a Device."
+input createDeviceInput {
+    clientMutationId: String
+    color: String!
+    deviceHealth: String!
+    lastUsed: String!
+    location: String!
+    price: Float!
+    type: String!
+}
+
+"Deletes a Device."
+input deleteDeviceInput {
+    clientMutationId: String
+    id: ID!
+}
+
+"Updates a Device."
+input updateDeviceInput {
+    clientMutationId: String
+    color: String
+    deviceHealth: String
+    id: ID!
+    lastUsed: String
+    location: String
+    price: Float
+    type: String
+}

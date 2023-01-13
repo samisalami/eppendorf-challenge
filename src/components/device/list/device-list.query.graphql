@@ -1,0 +1,11 @@
+query Devices {
+    devices {
+        _id,
+        location,
+        type,
+        deviceHealth,
+        lastUsed,
+        price,
+        color
+    }
+}
